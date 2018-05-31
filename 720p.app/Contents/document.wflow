@@ -51,7 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run argv	tell application "Finder"		set cwd to POSIX path of (container of (path to me) as alias)	end tell		tell application "Terminal"		activate		set inputFile to (the POSIX path of (item 1 of item 1 of argv))		do script cwd &amp; "lib/720p.sh " &amp; inputFile	end tellend run</string>
+					<string>on run argv	tell application "Finder"		set cwd to POSIX path of (container of (path to me) as alias)	end tell		tell application "Terminal"		activate		set args to ""		repeat with f in item 1 of argv			set args to args &amp; " \"" &amp; the POSIX path of f &amp; "\""		end repeat		do script cwd &amp; "lib/720p.sh" &amp; args	end tellend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
